@@ -14,19 +14,22 @@ Consider the differential equation
 % \end{equation}
 (Warm-up) Use pencil-and-paper to solve the ODE. Make a quiver plot. Sketch solutions.\\
 (Project) We wish to build a numerical solver for differential equations like this one. We will test our solver on this ODE, and then use it to solve a more interesting ODE.\\
-For this problem, we will discretize the time interval $0 \leq t \leq T$ into $n+1$ points, $ t = \{t_0, t_1, \dots, t_n\}$ with $t_k = k (\Delta t)$ so $t_0=0$ and $t_n = T$. 
+
+For this problems, we will discretize the time interval $0 \leq t \leq T$ into $n+1$ points. That is, set $\Delta t = T/n$ and $t_k = k \, \Delta t$, so $ t = \{t_0, t_1, \dots, t_n\}$. 
+\subsubsection*{Forward Differences}
 \begin{enumerate}[(a)]
-    \item For suitably small $\Delta t$ (say $\Delta t = 0.1$), we can make what's called a \textit{first-order forward difference} approximation of the derivatives $\dot{x}$ and $\dot{y}$ at each $t$ as follows:
+    \item Use what's called a \textit{first-order forward difference} approximation to the derivatives $\dot{x}$ and $\dot{y}$ at each $t$ as follows:
     \begin{equation} 
     \label{eq:forward_difference}
     \dot{x}(t) \approx \frac{x(t + \Delta t) - x(t)}{\Delta t} \qquad \text{and} \qquad \dot{y}(t) \approx \frac{y(t + \Delta t) - y(t)}{\Delta t}.
     \end{equation}
-     Substitute equation (\ref{eq:forward_difference}) into equation (\ref{eq:ode_system}) to show that we can approximate the differential equation by the discrete time-stepping process:
+     Substitute equation (\ref{eq:forward_difference}) into equation (\ref{eq:ode_system}) and show that we can approximate the differential equation by the discrete time-stepping process:
     \begin{equation}
     \label{eq:forward_euler}
     \begin{cases} x_{k+1} = x_k - (\Delta t) y_k, & \quad x_0 = 1\\  y_{k+1} = y_k + (\Delta t) x_k, & \quad y_0 = 0\\  \end{cases}
     \end{equation}
-    Implement equation \ref{eq:forward_euler} for $0 \leq t \leq 1$ and plot the trajectory given by the solution. Is this approximation qualitatively correct? Will it remain qualitatively correct on $0 \leq t \leq T$ as $T$ gets very large? Explain.\\
+    \item Implement equation \ref{eq:forward_euler} for $0 \leq t \leq 1$ and plot the trajectory given by the solution.
+    \item Is your approximation qualitatively correct? Will it remain qualitatively correct on $0 \leq t \leq T$ as $T$ gets very large? Explain.\\
     \textit{Hint:} It may be useful to rewrite the system of difference equations in matrix form,
     \begin{equation*}
     \bm{x}_{k+1} 
@@ -34,6 +37,9 @@ For this problem, we will discretize the time interval $0 \leq t \leq T$ into $n
     = \begin{bmatrix} 1 & -\Delta t \\  \Delta t & 1\end{bmatrix} \bm{x}_k, \quad \bm{x}_0 = \begin{pmatrix} 1\\0 \end{pmatrix}
     \end{equation*}
     and to analyze the eigenvalues of the matrix.
+\end{enumerate}
+\subsubsection*{Backward Differences}
+\begin{enumerate}[(a),resume]
     \item We could have solved this problem by a different approach. We could also have used what's called a \textit{first-order backward difference}:
     \begin{equation} 
     \label{eq:backward_difference}
@@ -50,7 +56,11 @@ For this problem, we will discretize the time interval $0 \leq t \leq T$ into $n
     % = \bm{x}_n + (\Delta t) \begin{bmatrix*}[r] 0 & -1 \\ 1 & 0 \end{bmatrix*} \bm{x}_n 
     = \left(\begin{bmatrix} 1 & \Delta t \\  -\Delta t & 1\end{bmatrix}\right)^{-1} \bm{x}_{k-1}, \quad \bm{x}_0 = \begin{pmatrix} 1\\0 \end{pmatrix}
     \end{equation*}
-     Implement equation (\ref{eq:backward_euler}) for $0 \leq t \leq 1$ and plot the trajectory given by the solution. Is this approximation qualitatively correct? Will it remain qualitatively correct on $0 \leq t \leq T$ as $T$ gets very large? Explain.
+    \item Implement equation (\ref{eq:backward_euler}) for $0 \leq t \leq 1$ and plot the trajectory given by the solution. 
+    \item Is your approximation qualitatively correct? Will it remain qualitatively correct on $0 \leq t \leq T$ as $T$ gets very large? Explain.
+\end{enumerate}
+\subsubsection*{(Bonus)}
+\begin{enumerate}[(a),resume]
     \item (The really fun stuff) Perhaps solve $\dot{x} = -y$, $\dot{y} = \sin x$.  Maybe this is too hard.
 \end{enumerate}
 \newpage
