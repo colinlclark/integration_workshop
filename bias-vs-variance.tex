@@ -14,13 +14,11 @@ For this problem, we will define the error as
 \begin{equation*}
 \text{Error}(f,g) = \int_0^1 \bigg(f(x) - g(x; \alpha, \beta)\bigg)^2 dx.
 \end{equation*} 
-Use pencil-and-paper (or Mathematica, WolframAlpha, etc) to find a simplified expression for the error between $f$ and $g$ as a function of the parameters $ \alpha$ and $ \beta$. Find the values of $ \alpha$ and $ \beta$ that minimize this error.
+Use pencil-and-paper (or Mathematica, WolframAlpha, etc) to find a simplified expression for the error between $f$ and $g$ as a function of the parameters $ \alpha$ and $ \beta$. Find the values of $ \alpha$ and $ \beta$ that minimize this error and the corresponding error.
 
-% (where the notation $y = g(x; \alpha, \beta)$ to denote a function of a single variable, namely $x$, that depends on two parameters, namely $ \alpha$ and $ \beta$).
-\textit{Terminology:} The error we expect to incur when we use our best possible candidate is called the \textit{bias} of the model.
+\noindent\textit{Terminology:} The error we expect to incur when we use our best possible candidate is called the \textit{bias} of the model.
 
-
-In many practical applications, we only have imperfect knowledge of $f$, and therefore it is impossible to know the parameters of the \textit{best possible} candidate $g(x, \alpha, \beta)$. Often, we must commit to a choice of sub-optimal parameters that are chosen after only a small glimpse of $f$. In this project, we will estimate how much more error we expect to incur by using an imperfect choice of parameters.
+In many practical applications, we only have imperfect knowledge of $f$, and therefore it is impossible to know the parameters of the \textit{best possible} candidate $g(x, \alpha, \beta)$. Often, we must commit to a choice of sub-optimal parameters that are chosen after only a small glimpse of $f$. In this project, we will estimate how much extra error we expect to incur by using an imperfect choice of parameters.
 
 
 Repeat the following recipe to estimate how well a linear function parameterized by two random data points can be used to approximate $f$.\\
@@ -30,12 +28,11 @@ Repeat the following recipe to estimate how well a linear function parameterized
     \item \texttt{Using \textbf{only} $x_1$ and $x_2$, compute a `best guess' for parameters $\alpha$ and $\beta$.}
     \item \texttt{Test the performance of your (sub-optimal) parameters by generating new data points and computing the mean square error on the new points. Record the mean square error.}
 \end{enumerate}
-\texttt{Analyze the expected error by taking averages and plotting histograms.}
+\texttt{Analyze the mean square error by taking averages and plotting histograms.}
 
-% \textit{Terminology:} The `extra error' that we expect to typically incur by using `best guess' parameters is called the variance of the model. \\
-\textit{Terminology:} When we use `best guess' parameters instead of `best possible' parameters, we can expect to incur error beyond the bias of the model. This `extra error' is called the \textit{variance} of the model.  
-
-For this project, you will need to write the following functions:
+\noindent\textit{Terminology:} When we use `best guess' parameters instead of `best possible' parameters, we can expect to incur error beyond the bias of the model. This `extra error' is called the \textit{variance} of the model.  \\
+\vspace*{1cm}	
+\noindent For this project, you will need to write the following functions:
 \begin{enumerate}
     \item a function that randomly generates two values in $[0,1]$
     \item a function called \texttt{train\_g}.
@@ -52,4 +49,4 @@ For this project, you will need to write the following functions:
     \end{itemize}
 \end{enumerate}
 
-Someone proposes that the variance is so big that it makes the linear model unusable.  They suggest that we should approximate $f$ by a constant function  $h(x;\alpha)$. Compute the new bias, and the estimate the new total error. 
+Someone proposes that the variance is so big that it makes the linear model unusable.  They suggest that we should approximate $f$ by a constant function  $h(x;\alpha)$. Repeat the steps above to compute the bias and to the estimate the variance of the constant model. 

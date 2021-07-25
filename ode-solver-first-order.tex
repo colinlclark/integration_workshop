@@ -13,8 +13,7 @@ Consider the differential equation
 % \dot{\bm{x}}(t) = \begin{bmatrix*}[r] 0 & -1 \\ 1 & 0 \end{bmatrix*} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 1\\0 \end{pmatrix}
 % \end{equation}
 (Warm-up) Use pencil-and-paper to solve the ODE. Make a quiver plot. Sketch solutions.\\
-(Project) We wish to build a numerical solver for differential equations like this one. We will test our solver on this ODE, and then use it to solve a more interesting ODE.
-
+(Project) We wish to build a numerical solver for differential equations like this one. We will test our solver on this ODE, and then use it to solve a more interesting ODE.\\
 For this problem, we will discretize the time interval $0 \leq t \leq T$ into $n+1$ points, $ t = \{t_0, t_1, \dots, t_n\}$ with $t_k = k (\Delta t)$ so $t_0=0$ and $t_n = T$. 
 \begin{enumerate}[(a)]
     \item For suitably small $\Delta t$ (say $\Delta t = 0.1$), we can make what's called a \textit{first-order forward difference} approximation of the derivatives $\dot{x}$ and $\dot{y}$ at each $t$ as follows:

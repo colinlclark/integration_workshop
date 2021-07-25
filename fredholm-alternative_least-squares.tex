@@ -13,7 +13,7 @@ The Fredholm alternative states that for the matrix equation $Ax=b$, exactly one
 Let $A_m$ be the $3 \times m$ matrix (below), and let $b'$ and $b''$ be the $3 \times 1$ vectors (below).
 \begin{equation*}
 A_m = \begin{bmatrix} 1 & 1 & 1 & \cdots & 1\\ 1 & 1 & 1 & \cdots & 1 \\ 1 & 2 & 3 &  \cdots & m \end{bmatrix}, \quad  \quad b' = \begin{bmatrix} -1 \\ -1 \\ +1 \end{bmatrix}, \quad b'' = \begin{bmatrix*}[r] -1 \\ 0 \\ +1 \end{bmatrix*}
-% A_n = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 2 \\ \vdots & \vdots & \vdots \\ 1 & 1 & n \end{bmatrix}, \quad  \quad b_1 = \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}, \quad b_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}
+ % A_n = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 2 \\ \vdots & \vdots & \vdots \\ 1 & 1 & n \end{bmatrix}, \quad  \quad b_1 = \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}, \quad b_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}
 \end{equation*}
 
 \begin{enumerate}[(a)]
@@ -24,20 +24,14 @@ A_m = \begin{bmatrix} 1 & 1 & 1 & \cdots & 1\\ 1 & 1 & 1 & \cdots & 1 \\ 1 & 2 &
 
 
 \subsubsection*{Pseudo-inverses \& Least Squares Solutions}
-When there is no solution to the matrix equation $Ax = b$, we may have to make and `executive 
-decision' and work with the `next best thing'. Your co-worker suggests the following matrix-al
-gebra to find the `next best thing'.
+When there is no solution to the matrix equation $Ax = b$, we may have to look for the `next best thing'. Your co-worker suggests the following matrix algebra to find the `next best thing'.
 \begin{equation*}
-Ax = b \quad \Rightarrow \quad A^\top A x = A^\top b \quad \Rightarrow \quad x = (A^\top A)^{-
-1} A^\top b
+Ax = b \quad \Rightarrow \quad A^\top A x = A^\top b \quad \Rightarrow \quad x = (A^\top A)^{-1} A^\top b
 \end{equation*}
 \begin{enumerate}[(a), resume]
-    \item What are the dimensions of the matrix $(A^\top A)$? What are requirements on $A$ for
- the matrix $(A^\top A)$ to be invertable?
-    \item For $m = 2$, find the matrix $A^\dagger:=(A_m^\top A_m) A_m^\top$ and compute the ve
-ctors $x': = A^\dagger b'$ and $x'':=A^\dagger b''$.
-    \item Does $Ax' = b'$? What about $Ax'' = b''$? Can you describe what we mean when we say 
-that $A^\dagger$ gives the `next best thing'?
+    \item What are the dimensions of the matrix $(A^\top A)$? What are requirements on $A$ for the matrix $(A^\top A)$ to be invertable?
+    \item For $m = 2$, find the matrix $A^\dagger:=(A_m^\top A_m) A_m^\top$ and compute the vectors $x': = A^\dagger b'$ and $x'':=A^\dagger b''$.
+    \item Does $Ax' = b'$? What about $Ax'' = b''$? Can you describe what we mean when we say that $A^\dagger$ gives the `next best thing'?
     \item (Bonus) Use some calculus to verify your answer in part (f).
 \end{enumerate}
 

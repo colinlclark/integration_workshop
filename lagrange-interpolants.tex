@@ -1,12 +1,12 @@
 % Project for Integration Workshop. Dept. Mathematics. UArizona
 % Compute and plot lagrange interpolating polynomials. Explore when they do well and when they do poorly. `Discovery' of chebychev points.
 
-\section{Lagrange Interpolating Polynomials for Function Approximation}
-Let $\{(x_k,y_k) , k = 1, \dots, N\}$ be $N$ points in $\mathbb{R}^2$ that satisfy $x_k \neq x_j$ whenever $k \neq j$, the \textit{Lagrange Interpolating polynomial} is defined as
+\section{Lagrange Interpolation for Function Approximation}
+Let $\{(x_k,y_k) , k = 1, \dots, N\}$ be $N$ points in $\mathbb{R}^2$ that satisfy $x_k \neq x_j$ whenever $k \neq j$, the \textit{Lagrange interpolating polynomial} is defined as
 \begin{equation}
 L(x) = \sum_{k = 1}^N \left(\prod_{j \neq k}\frac{x-x_j}{x_k-x_j} \right) y_k.
 \end{equation}
-We wish to determine how well a Lagrange Interpolating polynomial can approximate the functions 
+We wish to determine how well a Lagrange interpolating polynomial can approximate the functions 
 \begin{equation}
 f(x) = (x-.9)(x-.4)(x+.1)(x+.7)(x+.8)
 \end{equation}
@@ -15,7 +15,7 @@ and
 g(x) = \frac{1}{1+10x^2} \quad \quad \text{for } -1 \leq x \leq 1
 \end{equation}
 \begin{enumerate}[(a)]
-    \item The Lagrange interpolating polynomial is linear combination of $N$ terms in the form
+    \item Observe that the Lagrange interpolating polynomial is linear combination of $N$ terms in the form
     \begin{equation}
     T_k(x): =\left( \prod_{j \neq k}\frac{x-x_j}{x_k-x_j}  \right) 
     \end{equation}
@@ -26,6 +26,6 @@ g(x) = \frac{1}{1+10x^2} \quad \quad \text{for } -1 \leq x \leq 1
       \item Repeat part (b)(i) with 5 equi-spaced points, and again with 9 equi-spaced points. Plot your results and describe whether your approximation improves with more points. 
     \end{enumerate}
     \item Repeat part (b) for the function $g(x)$.
-    \item There is a well-known rule of thumb for improving numerical approximations: Sample your function with a higher density of sample points in regions where the error is biggest. Does this rule of thumb seem to work with the functions $f$ and $g$?
+    \item There is a well-known rule of thumb for improving numerical approximations: Increase the sampling density in the regions where the error is greatest. Does this rule of thumb seem to work with the functions $f$ and $g$?
 \end{enumerate}
 
