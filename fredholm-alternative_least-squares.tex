@@ -1,0 +1,43 @@
+% Project for Integration Workshop. Dept. Mathematics. UArizona
+% A little linearalgebra with non square matrices.
+
+\section{The Fredholm Alternative \& Least Squares Solutions}
+Sometimes we focus too much on solving the matrix equation $A \bm{x} = \bm{b}$ for situations where $A$ is a square matrix,  and we ignore situations where $A$ is not square. In many practical applications,  $A$ is an $m \times n$ matrix with $m \neq n$. In this problem, we're going to explore what we mean by \textit{solutions to the matrix equation for non-square matrices}.
+
+\subsubsection*{The Fredholm Alternative}
+The Fredholm alternative states that for the matrix equation $Ax=b$, exactly one of the following statements is true:
+\begin{itemize}
+    \item (Either) There exists an $x$ that solves the matrix equation $Ax=b$.
+    \item (Or) There exists a $y$ that solves $A^\top y = 0$ such that $y^\top b \neq 0$.
+\end{itemize}
+Let $A_m$ be the $3 \times m$ matrix (below), and let $b'$ and $b''$ be the $3 \times 1$ vectors (below).
+\begin{equation*}
+A_m = \begin{bmatrix} 1 & 1 & 1 & \cdots & 1\\ 1 & 1 & 1 & \cdots & 1 \\ 1 & 2 & 3 &  \cdots & m \end{bmatrix}, \quad  \quad b' = \begin{bmatrix} -1 \\ -1 \\ +1 \end{bmatrix}, \quad b'' = \begin{bmatrix*}[r] -1 \\ 0 \\ +1 \end{bmatrix*}
+% A_n = \begin{bmatrix} 1 & 1 & 1 \\ 1 & 1 & 2 \\ \vdots & \vdots & \vdots \\ 1 & 1 & n \end{bmatrix}, \quad  \quad b_1 = \begin{bmatrix} 0 & 0 & -1 \end{bmatrix}, \quad b_2 = \begin{bmatrix} 1 \\ -1 \\ 0 \end{bmatrix}
+\end{equation*}
+
+\begin{enumerate}[(a)]
+    \item Plot the vectors that make the columns of $A_m$ for $m = 5$, and use your figure to describe the column space of $A_m$.
+    \item Use pencil-and-paper to verify the Fredholm Alternative for $b'$ and for $b''$.
+    \item Plot the vectors $b'$ and $b''$ on the same figure from part (a), and use your figure to provide an intuitive explanation for the Fredholm Alternative.
+\end{enumerate}
+
+
+\subsubsection*{Pseudo-inverses \& Least Squares Solutions}
+When there is no solution to the matrix equation $Ax = b$, we may have to make and `executive 
+decision' and work with the `next best thing'. Your co-worker suggests the following matrix-al
+gebra to find the `next best thing'.
+\begin{equation*}
+Ax = b \quad \Rightarrow \quad A^\top A x = A^\top b \quad \Rightarrow \quad x = (A^\top A)^{-
+1} A^\top b
+\end{equation*}
+\begin{enumerate}[(a), resume]
+    \item What are the dimensions of the matrix $(A^\top A)$? What are requirements on $A$ for
+ the matrix $(A^\top A)$ to be invertable?
+    \item For $m = 2$, find the matrix $A^\dagger:=(A_m^\top A_m) A_m^\top$ and compute the ve
+ctors $x': = A^\dagger b'$ and $x'':=A^\dagger b''$.
+    \item Does $Ax' = b'$? What about $Ax'' = b''$? Can you describe what we mean when we say 
+that $A^\dagger$ gives the `next best thing'?
+    \item (Bonus) Use some calculus to verify your answer in part (f).
+\end{enumerate}
+

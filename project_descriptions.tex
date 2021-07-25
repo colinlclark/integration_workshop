@@ -95,6 +95,29 @@
 
 \newpage
 
+\input{fredholm-alternative_least-squares}
+\newpage
+
+\input{lagrange-interpolants}
+\newpage
+
+\input{complex-contour-integrals}
+\newpage
+
+\input{ode-solver-first-order}
+
+\newpage
+
+\input{random-walk}
+\newpage
+
+\input{bias-vs-variance}
+\newpage
+
+\input{random-triangles-high-dimensions}
+\newpage
+
+\end{document}
 \section{The Fredholm Alternative \& Least squares solutions}
 Sometimes we focus too much on solving the matrix equation $A \bm{x} = \bm{b}$ for situations where $A$ is a square matrix,  and we ignore situations where $A$ is not square. In many practical applications,  $A$ is an $m \times n$ matrix with $m \neq n$. In this problem, we're going to explore what we mean by \textit{solutions to the matrix equation for non-square matrices}.
 
@@ -131,8 +154,8 @@ Ax = b \quad \Rightarrow \quad A^\top A x = A^\top b \quad \Rightarrow \quad x =
 
 \newpage
 
-\section{Fitting functions using Lagrange interpolating polynomials.  `Discovery' of Lagrange interpolation points.}
-For a sequence of points in $\mathbb{R}^2$, $\{(x_k,y_k) , k = 1, \dots, N\}$ (with $x_k \neq x_j$ whenever $k \neq j$), the \textit{Lagrange Interpolating polynomial} is defined as
+\section{Lagrange interpolating polynomials for function approximation}
+Let $\{(x_k,y_k) , k = 1, \dots, N\}$ be $N$ points in $\mathbb{R}^2$ that satisfy $x_k \neq x_j$ whenever $k \neq j$, the \textit{Lagrange Interpolating polynomial} is defined as
 \begin{equation}
 L(x) = \sum_{k = 1}^N \left(\prod_{j \neq k}\frac{x-x_j}{x_k-x_j} \right) y_k.
 \end{equation}
@@ -170,8 +193,8 @@ g(x) = \frac{1}{1+10x^2} \quad \quad \text{for } -1 \leq x \leq 1
 f(z) = z^2 \quad \quad \text{and} \quad \quad g(z) = z^{-1}
 \end{equation*}
 \begin{enumerate}[(a)]
-    \item Plotting
-    \begin{enumerate}
+    \item Plotting:
+    \begin{enumerate}[i.] 
         \item Make a surface plot showing $Re(f(z))$ and a surface plot showing $Im(f(z))$
         \item Make a surface plot showing $Re(g(z))$ and a surface plot showing $Im(g(z))$
     \end{enumerate}
@@ -346,10 +369,10 @@ Repeat the following recipe to estimate how well a linear function parameterized
 \end{enumerate}
 \texttt{Analyze the expected error by taking averages and plotting histograms.}
 
-\textit{Terminology:} The `extra error' that we expect to typically incur by using `best guess' parameters is called the variance of the model. \\
+% \textit{Terminology:} The `extra error' that we expect to typically incur by using `best guess' parameters is called the variance of the model. \\
+\textit{Terminology:} When we use `best guess' parameters instead of `best possible' parameters, we can expect to incur error beyond the bias of the model. This `extra error' is called the \textit{variance} of the model.  
 
-
-You will need to write:
+For this project, you will need to write the following functions:
 \begin{enumerate}
     \item a function that randomly generates two values in $[0,1]$
     \item a function called \texttt{train\_g}.
