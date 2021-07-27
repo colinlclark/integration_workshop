@@ -1,18 +1,19 @@
 \section{Eigenvectors of Circulant Matrices}
 
 
-Define the $16 \times 16$ matrices $A$ and $B$ by
+Define the $16 \times 16$ matrix $A$ by
 \begin{equation}
 A = \begin{bmatrix*}[r] -2 & 1 & 0 & 0 & \dots & 0 & 0 & 1 \\ 1 & -2 & 1 & 0 & \dots& 0 & 0 & 0 \\ 0 & 1 & -2 & 1 & \cdots&0 & 0 & 0 \\ 0 & 0 & 1 & -2 & \cdots&0 & 0 & 0 \\ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \cdots & -2 & 1 & 0 \\ 0 & 0 & 0 & 0 & \cdots & 1 & -2 & 1\\ 1 & 0 & 0 & 0 & \cdots & 0 & 1 & -2 \end{bmatrix*}
 \end{equation}
-\begin{enumerate}[(a)]
-  \item Create a variable for the matrix $A$ by using the function \texttt{A=diag(...)} (Matlab), or \texttt{A=np.diag(...)} (Python), or \texttt{diagm(...)} (Julia).
-  \item In this project, we would like to explore (and explain) the behavior of the iterative scheme
+In this project, we would like to explore (and explain) the behavior of the iterative scheme
     \begin{equation}
       \label{eq:eigen-iterative}
       \bm{x}_{k+1} = \left(I + \eta A\right) \bm{x}_{k}
     \end{equation}
-   for various initial vectors $\bm{x}_0$, and for $\eta = 0.1$. Try different initial vectors $\bm{x}_0$ and plot $\bm{x}_1$, $\bm{x}_2, \dots $. Can you qualitatively describe the behavior of the matrix $(I + \eta A)$? 
+   for various initial vectors $\bm{x}_0$, and for $\eta = 0.1$. 
+\begin{enumerate}[(a)]
+  \item Create a variable for the matrix $A$ by using the function \texttt{A=diag(...)} (Matlab), or \texttt{A=np.diag(...)} (Python), or \texttt{diagm(...)} (Julia).
+  \item Try different initial vectors $\bm{x}_0$ and plot $\bm{x}_1$, $\bm{x}_2, \dots $. Can you qualitatively describe the behavior of the matrix $(I + \eta A)$? 
   \item Compute the eigenvectors of $(I+\eta A)$ by using the function \texttt{[X,V]=eig(...)} (Matlab), \texttt{V,X = np.linalg.eig(...)} (Python), or \texttt{V,X=eigen(...)} (Julia).
   \item \sloppy Plot enough of the eigenvectors so you get a sense for what they look like.\\ \textit{Hint:} If your software returned complex-valued eigenvectors, it may be helpful to plot real and imaginary components separately (e.g. \texttt{plot(real(X[k,:]))} and \texttt{plot(imag(X[k,:]))}). 
   \item Propose a closed form representation for each of the eigenvectors.

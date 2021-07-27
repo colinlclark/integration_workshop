@@ -2,11 +2,11 @@
 % Compute and plot lagrange interpolating polynomials. Explore when they do well and when they do poorly. `Discovery' of chebychev points.
 
 \section{Lagrange Interpolation for Function Approximation}
-Let $\{(x_k,y_k) , k = 1, \dots, N\}$ be $N$ points in $\mathbb{R}^2$ that satisfy $x_k \neq x_j$ whenever $k \neq j$, the \textit{Lagrange interpolating polynomial} is defined as
+Let $\{(x_k,y_k) ,\,\text{for}\, k = 1, \dots, N\}$ be $N$ points in $\mathbb{R}^2$ that satisfy $x_k \neq x_j$ whenever $k \neq j$. The \textit{Lagrange interpolating polynomial} is defined as
 \begin{equation}
 L(x) = \sum_{k = 1}^N \left(\prod_{j \neq k}\frac{x-x_j}{x_k-x_j} \right) y_k.
 \end{equation}
-We wish to determine how well a Lagrange interpolating polynomial can approximate the functions 
+In this project, we wish to determine how well a Lagrange interpolating polynomial can approximate the functions 
 \begin{equation}
 f(x) = (x-.9)(x-.4)(x+.1)(x+.7)(x+.8)
 \end{equation}
@@ -15,14 +15,14 @@ and
 g(x) = \frac{1}{1+10x^2} \quad \quad \text{for } -1 \leq x \leq 1
 \end{equation}
 \begin{enumerate}[(a)]
-    \item Observe that the Lagrange interpolating polynomial is linear combination of $N$ terms in the form
+    \item Observe that the Lagrange interpolating polynomial is a linear combination of $N$ terms in the form
     \begin{equation}
     T_k(x): =\left( \prod_{j \neq k}\frac{x-x_j}{x_k-x_j}  \right) 
     \end{equation}
     Let $x_1= -1$, $x_2 = 0$, and $x_3 = 1$. Plot the functions $T_k(x)$ for $k = 1,\dots,3$, and describe what you see.
     \item 
     \begin{enumerate}[i.]
-      \item Sample $f(x)$ at the points $x_1 = -1$, $x_2 = 0$, and $x_3= 1$. Compute and plot the Lagrange Interpolating polynomial given by these 3 equi-spaced points.
+      \item Sample $f(x)$ at the points $x_1 = -1$, $x_2 = 0$, and $x_3= 1$. Compute and plot the Lagrange interpolating polynomial given by these 3 equi-spaced points.
       \item Repeat part (b)(i) with 5 equi-spaced points, and again with 9 equi-spaced points. Plot your results and describe whether your approximation improves with more points. 
     \end{enumerate}
     \item Repeat part (b) for the function $g(x)$.
