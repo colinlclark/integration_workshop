@@ -12,11 +12,11 @@ Consider the differential equation
 % \label{eq:ode_matrix}
 % \dot{\bm{x}}(t) = \begin{bmatrix*}[r] 0 & -1 \\ 1 & 0 \end{bmatrix*} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 1\\0 \end{pmatrix}
 % \end{equation}
-(Warm-up) Use pencil-and-paper to solve the ODE. Make a quiver plot. Sketch solutions.\\
-(Project) We wish to build a numerical solver for differential equations like this one. We will test our solver on this ODE, and then use it to solve a more interesting ODE.\\
+Use pencil-and-paper to solve the ODE. Make a quiver plot. Sketch solutions.\\
 
-For this problems, we will discretize the time interval $0 \leq t \leq T$ into $n+1$ points. That is, set $\Delta t = T/n$ and $t_k = k \, \Delta t$, so $ t = \{t_0, t_1, \dots, t_n\}$. 
-\subsubsection*{Forward Differences}
+In this project, you will build a numerical solver for differential equations like this one. You will test your solver on this ODE, and then use it to solve a more interesting ODE.
+For this problem, discretize the time interval $0 \leq t \leq T$ into $n+1$ points. That is, set $\Delta t = T/n$ and $t_k = k \, \Delta t$, so $ t = \{t_0, t_1, \dots, t_n\}$. \\
+\textit{Forward Differences:}
 \begin{enumerate}[(a)]
     \item Use what's called a \textit{first-order forward difference} approximation to the derivatives $\dot{x}$ and $\dot{y}$ at each $t$ as follows:
     \begin{equation} 
@@ -38,7 +38,7 @@ For this problems, we will discretize the time interval $0 \leq t \leq T$ into $
     \end{equation*}
     and to analyze the eigenvalues of the matrix.
 \end{enumerate}
-\subsubsection*{Backward Differences}
+\textit{Backward Differences:}
 \begin{enumerate}[(a),resume]
     \item We could have solved this problem by a different approach. We could also have used what's called a \textit{first-order backward difference}:
     \begin{equation} 
@@ -59,7 +59,7 @@ For this problems, we will discretize the time interval $0 \leq t \leq T$ into $
     \item Implement equation (\ref{eq:backward_euler}) for $0 \leq t \leq 1$ and plot the trajectory given by the solution. 
     \item Is your approximation qualitatively correct? Will it remain qualitatively correct on $0 \leq t \leq T$ as $T$ gets very large? Explain.
 \end{enumerate}
-\subsubsection*{(Bonus)}
+\textit{Bonus:}
 \begin{enumerate}[(a),resume]
     \item (The really fun stuff) Perhaps solve $\dot{x} = -y$, $\dot{y} = \sin x$.  Maybe this is too hard.
 \end{enumerate}

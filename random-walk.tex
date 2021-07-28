@@ -1,7 +1,8 @@
 \section{Random Walk on a Grid} 
 A `particle' takes a random walk on a $4 \times 8$ grid. At each step of the walk, the particle may move up, down, left, or right with equal probability. The particle continues this process until it exits the grid. If the particle exits the top of the grid, the particle scores 1 point for the walk. If the particle exits the left, bottom or right sides of the grid, the particle scores 0 points for the walk. 
+Compute the expected score of the particle as a function of the starting coordinates.\\
 
-
+\noindent \textit{Hint:} For each starting point, you may estimate the expected score of the particle by simulating many, many random paths and taking their average score.\\
 \begin{center}
 \begin{tikzpicture}
     \pgfmathsetmacro{\N}{8}
@@ -44,9 +45,7 @@ The figure shows three sample paths of the random walk that all begin at the ini
 &\text{Steps: }  (\rightarrow \ \uparrow \ \rightarrow \ \rightarrow \ \uparrow \ \leftarrow \ \uparrow) &&\text{(See green path)}&& \text{Exit: Top} && \text{Score: 1}
 \end{align*}
 
-\noindent Compute the expected score of the particle as a function of the starting coordinates.\\
 
-\noindent \textit{Hint:} For each starting point, you may estimate the expected score of the particle by simulating many, many random paths and taking their average score.\\
 
 \noindent\textit{Bonus:} In this project, we have computed the solution to a problem by simulating many random events. This `indirect' approach is always computationally inefficient, so it is often worth looking for a `direct' approach. For this problem, there \textit{is} a method of computing the solution directly. Can you find it?
 
