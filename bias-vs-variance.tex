@@ -16,12 +16,11 @@ For this problem, we will define the error as
 \end{equation*} 
 Use pencil-and-paper (or Mathematica, WolframAlpha, etc) to find a simplified expression for the error between $f$ and $g$ as a function of the parameters $ \alpha$ and $ \beta$. Find the values of $ \alpha$ and $ \beta$ that minimize this error and the corresponding error.
 
-\noindent\textit{Terminology:} The error we expect to incur when we use our best possible candidate is called the \textit{bias} of the model.
-
-In many practical applications, we only have imperfect knowledge of $f$, and therefore it is impossible to know the parameters of the \textit{best possible} candidate $g(x, \alpha, \beta)$. Often, we must commit to a choice of sub-optimal parameters that are chosen after only a small glimpse of $f$. In this project, we will estimate how much extra error we expect to incur by using an imperfect choice of parameters.
+In many practical applications, we only have imperfect knowledge of $f$, and therefore it is impossible to know the parameters of the \textit{best possible} candidate $g(x, \alpha, \beta)$. Often, we must commit to a choice of sub-optimal parameters that are chosen after only a small glimpse of $f$. In this project, we will estimate the error we expect to incur when using an imperfect choice of parameters.
 
 
 Repeat the following recipe to estimate how well a linear function parameterized by two random data points can be used to approximate $f$.\\
+
 \texttt{Loop until you are confident you have reasonably accurate answers.}
 \begin{enumerate}\setlength{\itemsep}{0pt}
     \item \texttt{Generate two random data points on $x_1, x_2 \in [0,1]$.}
