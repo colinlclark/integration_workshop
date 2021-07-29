@@ -1,6 +1,6 @@
 \section{Random Walk on a Grid} 
 A `particle' takes a random walk on a $4 \times 8$ grid. At each step of the walk, the particle may move up, down, left, or right with equal probability. The particle continues this process until it exits the grid. If the particle exits the top of the grid, the particle scores 1 point for the walk. If the particle exits the left, bottom or right sides of the grid, the particle scores 0 points for the walk. 
-Compute the expected score of the particle as a function of the starting coordinates.\\
+In this project, you will compute the expected score of the particle as a function of the starting coordinates.\\
 
 \noindent \textit{Hint:} For each starting point, you may estimate the expected score of the particle by simulating many, many random paths and taking their average score.\\
 \begin{center}
@@ -38,7 +38,7 @@ Compute the expected score of the particle as a function of the starting coordin
     \draw[color = black,fill=black!70!white,opacity = .7] (3,2) circle  (.2);
 \end{tikzpicture}
 \end{center}
-The figure shows three sample paths of the random walk that all begin at the initial point (3,2). For the red path, the particle (randomly) takes the steps $(\downarrow, \leftarrow, \downarrow)$, and exits the grid at the bottom scoring zero points for the walk. The other paths are the results of the steps listed below
+\textit{Illustration:} The figure shows three sample paths of the random walk that all begin at the initial point (3,2). For the red path, the particle (randomly) takes the steps $(\downarrow, \leftarrow, \downarrow)$, and exits the grid at the bottom scoring zero points for the walk. The other paths are the results of the steps:
 \begin{align*}
 &\text{Steps: }  (\downarrow \ \leftarrow \ \downarrow) &&\text{(See red path)} && \text{Exit: Bottom} && \text{Score: 0}\\
 &\text{Steps: }  (\leftarrow \ \uparrow \ \leftarrow \ \downarrow \ \leftarrow) &&\text{(See orange path)} && \text{Exit: Left} && \text{Score: 0}\\

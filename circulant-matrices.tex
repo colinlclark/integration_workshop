@@ -15,10 +15,10 @@ In this project, you will explore (and explain) the behavior of the iterative ma
   \item Create a variable for the matrix $A$ by using the function \texttt{A=diag(...)} (Matlab), or \texttt{A=np.diag(...)} (Python), or \texttt{diagm(...)} (Julia).
   \item Try different initial vectors $\bm{x}_0$ and plot $\bm{x}_1$, $\bm{x}_2, \dots $. Can you qualitatively describe the behavior of the matrix $(I + \eta A)$? 
   \item Compute the eigenvectors of $(I+\eta A)$ by using the function \texttt{[X,V]=eig(...)} (Matlab), \texttt{V,X = np.linalg.eig(...)} (Python), or \texttt{V,X=eigen(...)} (Julia).
-  \item \sloppy Plot enough of the eigenvectors so you get a sense for what they look like.\\ \textit{Hint:} If your software returned complex-valued eigenvectors, it may be helpful to plot real and imaginary components separately (e.g. \texttt{plot(real(X[k,:]))} and \texttt{plot(imag(X[k,:]))}). 
+  \item \sloppy Plot enough of the eigenvectors so you get a sense for what they look like.\\ \textit{Hint:} If your software returned complex-valued eigenvectors, it may be helpful to plot real and imaginary components separately (e.g. in Julia, this would be \texttt{plot(real(X[k,:]))} and \texttt{plot(imag(X[k,:]))}). 
   \item Propose a closed form representation for each of the eigenvectors.
   \item[($\ast$)] \textit{Bonus:} Can you prove that every symmetric circulant matrix has eigenvectors in the form your found in part (e).
-  \item Without any further computation, and only by considering eigenvectors and corresponding eigenvalues, describe the behavior of (\ref{eq:eigen-iterative}) for an initial vector in the form
+  \item Without any further computation, and by only considering eigenvectors and their corresponding eigenvalues, describe the behavior of equation (\ref{eq:eigen-iterative}) for an initial vector in the form
 \begin{equation*}
 \bm{x}_0 = \big(\, \cos(2\pi k / 16) + 5 \cos( 4 \cdot 2\pi k / 16), \text{ for } k = 0,...,15\,\big).
 \end{equation*}
