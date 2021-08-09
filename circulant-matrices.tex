@@ -1,29 +1,40 @@
 \section{Eigenvectors of Circulant Matrices}
 
 
-Define the $16 \times 16$ matrix $A$ by
+Define the $n \times n$ matrix $A$ by
 \begin{equation}
 A = \begin{bmatrix*}[r] -2 & 1 & 0 & 0 & \dots & 0 & 0 & 1 \\ 1 & -2 & 1 & 0 & \dots& 0 & 0 & 0 \\ 0 & 1 & -2 & 1 & \cdots&0 & 0 & 0 \\ 0 & 0 & 1 & -2 & \cdots&0 & 0 & 0 \\ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \cdots & -2 & 1 & 0 \\ 0 & 0 & 0 & 0 & \cdots & 1 & -2 & 1\\ 1 & 0 & 0 & 0 & \cdots & 0 & 1 & -2 \end{bmatrix*}
 \end{equation}
 In this project, you will explore (and explain) the behavior of the iterative map
     \begin{equation}
       \label{eq:eigen-iterative}
-      \bm{x}_{k+1} = \left(I + \eta A\right) \bm{x}_{k}
+      \bm{x}^{(k+1)} = \left(I + \eta A\right) \bm{x}^{(k)}
     \end{equation}
-   for various initial vectors $\bm{x}_0$, and for $\eta = 0.1$. 
+    for various initial vectors $\bm{x}^{(0)}$, and for $\eta = 0.1$. 
 \begin{enumerate}[(a)]
-  \item Create a variable for the matrix $A$ by using the function \texttt{A=diag(...)} (Matlab), or \texttt{A=np.diag(...)} (Python), or \texttt{diagm(...)} (Julia).
-  \item Try different initial vectors $\bm{x}_0$ and plot $\bm{x}_1$, $\bm{x}_2, \dots $. Can you qualitatively describe the behavior of the matrix $(I + \eta A)$? 
+  \item Create a function that takes in the argument $n$ and returns the $n \times n$ matrix $A$.  \textit{Hint:} The built-in functions \texttt{diag(...)} (Matlab), or \texttt{np.diag(...)} (Python), or \texttt{diagm(...)} (Julia) may be useful.
+  \item Let $n = 32$. Create the $n$ dimensional initial vector $\bm{x}^{(0)}= (1,0,0,\dots,0)$ and plot $\bm{x}^{(0)}$, $\bm{x}^{(1)}$, $\bm{x}^{(2)}, \dots $. Repeat a selection of initial vectors until you can qualitatively describe the behavior of the map $\bm{x} \to (I + \eta A)\bm{x}$? 
   \item Compute the eigenvectors of $(I+\eta A)$ by using the function \texttt{[X,V]=eig(...)} (Matlab), \texttt{V,X = np.linalg.eig(...)} (Python), or \texttt{V,X=eigen(...)} (Julia).
-  \item \sloppy Plot enough of the eigenvectors so you get a sense for what they look like.\\ \textit{Hint:} If your software returned complex-valued eigenvectors, it may be helpful to plot real and imaginary components separately (e.g. in Julia, this would be \texttt{plot(real(X[k,:]))} and \texttt{plot(imag(X[k,:]))}). 
-  \item Propose a closed form representation for each of the eigenvectors.
-  \item[($\ast$)] \textit{Bonus:} Can you prove that every symmetric circulant matrix has eigenvectors in the form your found in part (e).
-  \item Without any further computation, and by only considering eigenvectors and their corresponding eigenvalues, describe the behavior of equation (\ref{eq:eigen-iterative}) for an initial vector in the form
+  \item \sloppy Plot enough of the eigenvectors so you get a sense for what they look like.\\ \textit{Hint:} If your software returned complex-valued eigenvectors, it may be helpful to plot real and imaginary components separately, for example, in Julia, this would be \texttt{plot(real(X[k,:]))} and \texttt{plot(imag(X[k,:]))}. 
+  \item[($\ast$)] \textit{Bonus:} Propose a closed form representation for the eigenvectors. Can you prove that every symmetric circulant matrix has eigenvectors in this form? 
+  \item[($\ast$)] \textit{(Bonus:)} Let $C$ be an (arbitrary) circulant matrix. One of the (many) expressions for the $k$\textsuperscript{th} eigenvector of a circulant matrix is 
+	  \begin{equation}
+		  \label{eq:circulant-eig-vector}
+		  \bm{v}_k = \begin{pmatrix} e^{(2 \pi i) 0k/n}\\ e^{(2 \pi i)1k/n}\\e^{(2 \pi i) 2k/n} \\ \vdots \\ e^{( 2 \pi i) (n-1)k/n} \end{pmatrix}
+		 \end{equation}
+		 with corresponding eigenvalues given by the product of $c$, the first row of $C$, with the eigenvector,
+		 \begin{equation}
+			 \label{eq:circulant-eig-value}
+			 \lambda_k = c v_k 
+	\end{equation}
+	Verify that $\bm{x}_k$ as defined in equation (\ref{eq:circulant-eig-vector}) is an eigenvector of an aribitrary circulant matrix, and that the corresponding eigenvalue is $\lambda_k$, as give by equation (\ref{eq:circulant-eig-value}).
+	 \item The $n \times n$ \textit{Fourier Matrix} is the $n \times n$ matrix whose columns are the eigenvectors $\bm{v}_0$, $\bm{v}_1$,\ldots, $\bm{v}_{n-1}$.  Write a function that takes argument $n$ and returns the $n\times n$ Fourier matrix, $F$. 
+  \item Without any further computation, and by only considering eigenvectors and their corresponding eigenvalues, describe the evolution of the iterative map in equation (\ref{eq:eigen-iterative}) for an initial vector in the form
 \begin{equation*}
-\bm{x}_0 = \big(\, \cos(2\pi k / 16) + 5 \cos( 4 \cdot 2\pi k / 16), \text{ for } k = 0,...,15\,\big).
+	\bm{x}^{(0)} = \big(\, \cos(2\pi j / n) + 5 \cos( 4 \cdot 2\pi j / n), \text{ for } j = 1,...,n\,\big).
 \end{equation*}
 \end{enumerate}
-Repeat these steps for the $16 \times 16$ matrix $B$, defined by
+Repeat these steps for the $n \times n$ matrix $B$, defined by
 \begin{equation}
 B = \begin{bmatrix*}[r] 0 & 1 & 0 & 0 & \dots & 0 & 0 & -1 \\ -1 & 0 & 1 & 0 & \dots& 0 & 0 & 0 \\ 0 & -1 & 0 & \phantom{+}1 & \cdots&0 & 0 & 0 \\ 0 & 0 & -1 & 0 & \cdots&0 & 0 & 0 \\ \vdots & \vdots & \vdots & \vdots & \ddots & \vdots & \vdots & \vdots \\ 0 & 0 & 0 & 0 & \cdots & 0 & 1 & 0 \\ 0 & 0 & 0 & 0 & \cdots & -1 & 0 & 1\\ 1 & 0 & 0 & 0 & \cdots & 0 & -1 & 0 \end{bmatrix*}
 \end{equation}
